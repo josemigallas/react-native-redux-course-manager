@@ -4,6 +4,10 @@ import { Card, CardSection, Input, Button } from "./common";
 
 class LoginForm extends Component {
 
+  onEmailChange(text) {
+
+  }
+
   render() {
     return (
       <Card>
@@ -11,6 +15,7 @@ class LoginForm extends Component {
           <Input
             label="Email"
             placeholder="user@email.com"
+            onChangeText={this.onEmailChange.bind(this)}
           />
         </CardSection>
 
