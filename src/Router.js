@@ -7,12 +7,12 @@ import EmployeeCreate from "./components/EmployeeCreate";
 const RouterComponent = () => {
   return (
     <Router>
-      <Stack key="root" hideNavBar>
+      <Stack key="root" hideNavBar initial>
         <Stack key="auth">
           <Scene key="login" component={LoginForm} title="Please Login" />
         </Stack>
 
-        <Stack key="main" initial>
+        <Stack key="main">
           <Scene
             key="employeeList"
             component={EmployeeList}
