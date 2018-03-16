@@ -59,7 +59,7 @@ export const employeeDelete = ({ uid }) => {
 
   return () => {
     firebase.database()
-      .ref(`users/${currentUser.uid}/users/${uid}`)
+      .ref(`users/${currentUser.uid}/employees/${uid}`)
       .remove()
       .then(() => {
         Actions.pop();
