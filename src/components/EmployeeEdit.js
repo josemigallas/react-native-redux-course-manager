@@ -4,9 +4,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import EmployeeForm from "./EmployeeForm";
 import { employeeUpdate, employeeSave } from "../actions";
-import { Card, CardSection, Button } from "./common";
+import { Card, CardSection, Button, Confirm } from "./common";
 
 class EmployeeEdit extends Component {
+
+  state = { showModal: false };
 
   componentWillMount() {
     foreach(this.props.employee, (value, prop) => {
@@ -26,6 +28,10 @@ class EmployeeEdit extends Component {
     Communications.text(phone, `Your upcoming shift is on ${shift}`);
   }
 
+  onFirePress() {
+    this.setState({ showModal: !this.state.showModal });
+  }
+
   render() {
     return (
       <Card>
@@ -42,6 +48,18 @@ class EmployeeEdit extends Component {
             Text Schedule
           </Button>
         </CardSection>
+
+        <CardSection>
+          <Button onPress={this.onFirePress.bind(this)}>
+            Fire employee
+          </Button>
+        </CardSection>
+
+        <Confirm
+          visible={this.state.showModal}
+        >
+          Are you sure you want to delete this?
+        </Confirm>
       </Card>
     );
   }
